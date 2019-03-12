@@ -8,11 +8,11 @@
 //import Foundation
 import SQLite
 
-final class Database {
+public final class Database {
     private static var sharedConnection: Connection?
     private let database: Connection
 
-    init() {
+    public init() {
         if let sharedConnection = Database.sharedConnection {
             database = sharedConnection
         } else {
@@ -21,7 +21,7 @@ final class Database {
         }
     }
 
-    func getFirst<Model: Persistable>(_ ofType: Model.Type) throws -> Model? {
+    public func getFirst<Model: Persistable>(_ ofType: Model.Type) throws -> Model? {
         do {
             guard let row = try database.pluck(Model.table) else { return nil }
             return try Model(databaseRow: row)
@@ -30,7 +30,7 @@ final class Database {
         }
     }
 
-    func getAll<Model: Persistable>(_ ofType: Model.Type) throws -> [Model] {
+    public func getAll<Model: Persistable>(_ ofType: Model.Type) throws -> [Model] {
         do {
             let result = try database.prepare(Model.table)
             return try Array(result).map { try Model(databaseRow: $0) }
@@ -39,7 +39,7 @@ final class Database {
         }
     }
 
-    func write<Model: Persistable>(_ query: Model.Query, _ model: Model) throws {
+    public func write<Model: Persistable>(_ query: Model.Query, _ model: Model) throws {
         do {
             try query.run(persisting: model, inside: database)
         } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {

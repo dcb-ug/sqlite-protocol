@@ -8,10 +8,10 @@
 //import Foundation
 import SQLite
 
-public class AnyQuery<Model>: DatabaseQuery {
+open class AnyQuery<Model>: DatabaseQuery {
     private let block: (Model, Connection) throws -> Void
 
-    init(block: @escaping (Model, Connection) throws -> Void) {
+    public init(block: @escaping (Model, Connection) throws -> Void) {
         self.block = block
     }
 
