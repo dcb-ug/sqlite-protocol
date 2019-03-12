@@ -20,6 +20,7 @@
 		640727F22237EDF100D9D39F /* DatabaseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E82237EDF100D9D39F /* DatabaseQuery.swift */; };
 		640727F32237EDF100D9D39F /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E92237EDF100D9D39F /* Persistable.swift */; };
 		640727F42237EDF100D9D39F /* Array+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727EA2237EDF100D9D39F /* Array+Persistable.swift */; };
+		640727FC2237F81A00D9D39F /* SQLiteProtocol.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 640727FB2237F81900D9D39F /* SQLiteProtocol.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		640727E92237EDF100D9D39F /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		640727EA2237EDF100D9D39F /* Array+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Persistable.swift"; sourceTree = "<group>"; };
 		640727F92237F15100D9D39F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		640727FB2237F81900D9D39F /* SQLiteProtocol.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQLiteProtocol.podspec; sourceTree = "<group>"; };
 		9DE1FB7935016A41BA27CCF7 /* Pods-SQliteProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.debug.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.debug.xcconfig"; sourceTree = "<group>"; };
 		A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQliteProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC104204284BBFE553B2C90A /* Pods-SQliteProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.release.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,14 +60,15 @@
 		640727C72237EC1D00D9D39F = {
 			isa = PBXGroup;
 			children = (
-				640727F92237F15100D9D39F /* README.md */,
 				640727E02237EDF100D9D39F /* Source */,
 				640727D22237EC1D00D9D39F /* Products */,
 				F67F7D62EE9B4720E3C1EAA8 /* Pods */,
 				9FD6C7F362B01BCD61243A0B /* Frameworks */,
 				640727D52237EC1D00D9D39F /* Info.plist */,
+				640727F92237F15100D9D39F /* README.md */,
 				640727DC2237EC8800D9D39F /* LICENSE */,
 				640727DD2237EC8800D9D39F /* Podfile */,
+				640727FB2237F81900D9D39F /* SQLiteProtocol.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,7 +185,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 640727CB2237EC1D00D9D39F /* Build configuration list for PBXProject "SQliteProtocol" */;
+			buildConfigurationList = 640727CB2237EC1D00D9D39F /* Build configuration list for PBXProject "SQLiteProtocol" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -206,6 +209,7 @@
 			files = (
 				640727DF2237EC8800D9D39F /* Podfile in Resources */,
 				640727DE2237EC8800D9D39F /* LICENSE in Resources */,
+				640727FC2237F81A00D9D39F /* SQLiteProtocol.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +456,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		640727CB2237EC1D00D9D39F /* Build configuration list for PBXProject "SQliteProtocol" */ = {
+		640727CB2237EC1D00D9D39F /* Build configuration list for PBXProject "SQLiteProtocol" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				640727D72237EC1D00D9D39F /* Debug */,

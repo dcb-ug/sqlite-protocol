@@ -6,7 +6,7 @@
 //  Copyright © 2018 DevCrew Berlin. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 import SQLite
 
 public final class DefaultQuery<Model>: AnyQuery<Model> {}

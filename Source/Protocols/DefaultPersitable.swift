@@ -6,6 +6,6 @@
 //  Copyright © 2018 DevCrew Berlin. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 
 public typealias DefaultPersistable = Persistable & ColumnSettersProviding & ArrayQueryProviding
