@@ -7,13 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		640727D62237EC1D00D9D39F /* SQliteProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 640727D42237EC1D00D9D39F /* SQliteProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12AF62E6AEAB99C371E882D4 /* Pods_SQliteProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */; };
+		640727DE2237EC8800D9D39F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 640727DC2237EC8800D9D39F /* LICENSE */; };
+		640727DF2237EC8800D9D39F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 640727DD2237EC8800D9D39F /* Podfile */; };
+		640727EB2237EDF100D9D39F /* ColumnSettersProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E12237EDF100D9D39F /* ColumnSettersProviding.swift */; };
+		640727EC2237EDF100D9D39F /* DefaultQueryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E22237EDF100D9D39F /* DefaultQueryProviding.swift */; };
+		640727ED2237EDF100D9D39F /* ArrayQueryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E32237EDF100D9D39F /* ArrayQueryProviding.swift */; };
+		640727EE2237EDF100D9D39F /* AnyQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E42237EDF100D9D39F /* AnyQuery.swift */; };
+		640727EF2237EDF100D9D39F /* DefaultPersitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E52237EDF100D9D39F /* DefaultPersitable.swift */; };
+		640727F02237EDF100D9D39F /* DefaultQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E62237EDF100D9D39F /* DefaultQuery.swift */; };
+		640727F12237EDF100D9D39F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E72237EDF100D9D39F /* Database.swift */; };
+		640727F22237EDF100D9D39F /* DatabseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E82237EDF100D9D39F /* DatabseQuery.swift */; };
+		640727F32237EDF100D9D39F /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E92237EDF100D9D39F /* Persistable.swift */; };
+		640727F42237EDF100D9D39F /* Array+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727EA2237EDF100D9D39F /* Array+Persistable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		640727D12237EC1D00D9D39F /* SQliteProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQliteProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		640727D42237EC1D00D9D39F /* SQliteProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQliteProtocol.h; sourceTree = "<group>"; };
 		640727D52237EC1D00D9D39F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		640727DC2237EC8800D9D39F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		640727DD2237EC8800D9D39F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		640727E12237EDF100D9D39F /* ColumnSettersProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnSettersProviding.swift; sourceTree = "<group>"; };
+		640727E22237EDF100D9D39F /* DefaultQueryProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultQueryProviding.swift; sourceTree = "<group>"; };
+		640727E32237EDF100D9D39F /* ArrayQueryProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayQueryProviding.swift; sourceTree = "<group>"; };
+		640727E42237EDF100D9D39F /* AnyQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyQuery.swift; sourceTree = "<group>"; };
+		640727E52237EDF100D9D39F /* DefaultPersitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPersitable.swift; sourceTree = "<group>"; };
+		640727E62237EDF100D9D39F /* DefaultQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultQuery.swift; sourceTree = "<group>"; };
+		640727E72237EDF100D9D39F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		640727E82237EDF100D9D39F /* DatabseQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabseQuery.swift; sourceTree = "<group>"; };
+		640727E92237EDF100D9D39F /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		640727EA2237EDF100D9D39F /* Array+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Persistable.swift"; sourceTree = "<group>"; };
+		640727F92237F15100D9D39F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9DE1FB7935016A41BA27CCF7 /* Pods-SQliteProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.debug.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.debug.xcconfig"; sourceTree = "<group>"; };
+		A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQliteProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC104204284BBFE553B2C90A /* Pods-SQliteProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.release.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AF62E6AEAB99C371E882D4 /* Pods_SQliteProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -30,8 +58,14 @@
 		640727C72237EC1D00D9D39F = {
 			isa = PBXGroup;
 			children = (
-				640727D32237EC1D00D9D39F /* SQliteProtocol */,
+				640727F92237F15100D9D39F /* README.md */,
+				640727E02237EDF100D9D39F /* Source */,
 				640727D22237EC1D00D9D39F /* Products */,
+				F67F7D62EE9B4720E3C1EAA8 /* Pods */,
+				9FD6C7F362B01BCD61243A0B /* Frameworks */,
+				640727D52237EC1D00D9D39F /* Info.plist */,
+				640727DC2237EC8800D9D39F /* LICENSE */,
+				640727DD2237EC8800D9D39F /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -43,13 +77,62 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		640727D32237EC1D00D9D39F /* SQliteProtocol */ = {
+		640727E02237EDF100D9D39F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				640727D42237EC1D00D9D39F /* SQliteProtocol.h */,
-				640727D52237EC1D00D9D39F /* Info.plist */,
+				640727F52237EE1500D9D39F /* Protocols */,
+				640727F72237EE9400D9D39F /* Models */,
+				640727F62237EE5500D9D39F /* Extensions */,
 			);
-			path = SQliteProtocol;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		640727F52237EE1500D9D39F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				640727E92237EDF100D9D39F /* Persistable.swift */,
+				640727E82237EDF100D9D39F /* DatabseQuery.swift */,
+				640727E12237EDF100D9D39F /* ColumnSettersProviding.swift */,
+				640727E22237EDF100D9D39F /* DefaultQueryProviding.swift */,
+				640727E32237EDF100D9D39F /* ArrayQueryProviding.swift */,
+				640727E52237EDF100D9D39F /* DefaultPersitable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		640727F62237EE5500D9D39F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				640727EA2237EDF100D9D39F /* Array+Persistable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		640727F72237EE9400D9D39F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				640727E42237EDF100D9D39F /* AnyQuery.swift */,
+				640727E62237EDF100D9D39F /* DefaultQuery.swift */,
+				640727E72237EDF100D9D39F /* Database.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FD6C7F362B01BCD61243A0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F67F7D62EE9B4720E3C1EAA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DE1FB7935016A41BA27CCF7 /* Pods-SQliteProtocol.debug.xcconfig */,
+				EC104204284BBFE553B2C90A /* Pods-SQliteProtocol.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +142,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				640727D62237EC1D00D9D39F /* SQliteProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +152,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 640727D92237EC1D00D9D39F /* Build configuration list for PBXNativeTarget "SQliteProtocol" */;
 			buildPhases = (
+				176AF391C9EBAC76EAF73C13 /* [CP] Check Pods Manifest.lock */,
+				640727F82237EF8800D9D39F /* Swiftlint */,
 				640727CC2237EC1D00D9D39F /* Headers */,
 				640727CD2237EC1D00D9D39F /* Sources */,
 				640727CE2237EC1D00D9D39F /* Frameworks */,
@@ -120,16 +204,71 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640727DF2237EC8800D9D39F /* Podfile in Resources */,
+				640727DE2237EC8800D9D39F /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		176AF391C9EBAC76EAF73C13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SQliteProtocol-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		640727F82237EF8800D9D39F /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		640727CD2237EC1D00D9D39F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640727F32237EDF100D9D39F /* Persistable.swift in Sources */,
+				640727F02237EDF100D9D39F /* DefaultQuery.swift in Sources */,
+				640727F22237EDF100D9D39F /* DatabseQuery.swift in Sources */,
+				640727EB2237EDF100D9D39F /* ColumnSettersProviding.swift in Sources */,
+				640727EF2237EDF100D9D39F /* DefaultPersitable.swift in Sources */,
+				640727ED2237EDF100D9D39F /* ArrayQueryProviding.swift in Sources */,
+				640727EC2237EDF100D9D39F /* DefaultQueryProviding.swift in Sources */,
+				640727F12237EDF100D9D39F /* Database.swift in Sources */,
+				640727F42237EDF100D9D39F /* Array+Persistable.swift in Sources */,
+				640727EE2237EDF100D9D39F /* AnyQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +399,7 @@
 		};
 		640727DA2237EC1D00D9D39F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DE1FB7935016A41BA27CCF7 /* Pods-SQliteProtocol.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -285,6 +425,7 @@
 		};
 		640727DB2237EC1D00D9D39F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC104204284BBFE553B2C90A /* Pods-SQliteProtocol.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
