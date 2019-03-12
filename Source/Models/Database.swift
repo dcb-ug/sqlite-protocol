@@ -3,7 +3,6 @@
 //  enter-ios
 //
 //  Created by Manuel Reich on 17.12.18.
-//  Copyright © 2018 DevCrew Berlin. All rights reserved.
 //
 
 //import Foundation
