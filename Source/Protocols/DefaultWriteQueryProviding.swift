@@ -1,13 +1,10 @@
 //
-//  DefaultQueryProviding.swift
-//  enter-ios
+//  DefaultWriteQueryProviding.swift
 //
 //  Created by Manuel Reich on 25.12.18.
 //
 
-//import Foundation
-
-public protocol DefaultQueryProviding {
+public protocol DefaultWriteQueryProviding {
     static var delete: Self { get }
     static var createOrUpdate: Self { get }
 }

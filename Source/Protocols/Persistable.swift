@@ -1,6 +1,5 @@
 //
 //  Persistable.swift
-//  enter-ios
 //
 //  Created by Manuel Reich on 27.11.18.
 //
@@ -9,12 +8,18 @@ import SQLite
 
 public protocol Persistable {
     associatedtype Columns
-    associatedtype Query: DatabaseQuery = DefaultQuery<Self> where Query.Model == Self
+    associatedtype WriteQuery: WriteQueryProtocol = DefaultQuery<Self> where WriteQuery.Model == Self
 
     static var table: Table { get }
-    var databaseRowSelector: Expression<Bool> { get }
+    var singleRowSelector: Expression<Bool> { get }
 
     init(databaseRow: Row) throws
 
     static func schema(tableBuilder: TableBuilder)
+}
+
+extension Persistable where Self: PrimaryKeyProviding {
+    public var singleRowSelector: Expression<Bool> {
+        return Self.primaryKey == self.primaryKeyValue
+    }
 }

@@ -8,7 +8,7 @@
 //import Foundation
 import SQLite
 
-open class AnyQuery<Model>: DatabaseQuery {
+open class AnyQuery<Model>: WriteQueryProtocol {
     private let block: (Model, Connection) throws -> Void
 
     public init(block: @escaping (Model, Connection) throws -> Void) {

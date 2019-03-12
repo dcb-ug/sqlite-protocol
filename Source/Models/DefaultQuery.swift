@@ -10,10 +10,10 @@ import SQLite
 
 public final class DefaultQuery<Model>: AnyQuery<Model> {}
 
-extension DefaultQuery: DefaultQueryProviding where Model: Persistable & ColumnSettersProviding {
+extension DefaultQuery: DefaultWriteQueryProviding where Model: Persistable & ColumnSettersProviding {
     public static var delete: DefaultQuery {
         return DefaultQuery { model, database in
-            let row = Model.table.filter(model.databaseRowSelector)
+            let row = Model.table.filter(model.singleRowSelector)
             try database.run(row.delete())
         }
     }
@@ -28,19 +28,19 @@ extension DefaultQuery: DefaultQueryProviding where Model: Persistable & ColumnS
 extension DefaultQuery where Model: Collection,
                              Model: Persistable,
                              Model.Element: Persistable,
-                             Model.Element.Query: DefaultQueryProviding {
+                             Model.Element.WriteQuery: DefaultWriteQueryProviding {
     public static var delete: DefaultQuery {
         return DefaultQuery { models, database in
-            if Model.Element.Query.self == DefaultQuery<Model.Element>.self {
+            if Model.Element.WriteQuery.self == DefaultQuery<Model.Element>.self {
                 // if the query for the collection member is the default delete-query written above
                 // we can just select all rows and delte them at once
-                let row = Model.table.filter(models.databaseRowSelector)
+                let row = Model.table.filter(models.singleRowSelector)
                 try database.run(row.delete())
             } else {
                 // but when we don't know the content and side effects of the delete-query
                 // we have to actually run it for each member of the collection
                 for model in models {
-                    try Model.Element.Query.delete.run(persisting: model, inside: database)
+                    try Model.Element.WriteQuery.delete.run(persisting: model, inside: database)
                 }
             }
         }
@@ -49,7 +49,7 @@ extension DefaultQuery where Model: Collection,
     public static var createOrUpdate: DefaultQuery {
         return DefaultQuery { models, database in
             for model in models {
-                try Model.Element.Query.createOrUpdate.run(persisting: model, inside: database)
+                try Model.Element.WriteQuery.createOrUpdate.run(persisting: model, inside: database)
             }
         }
     }

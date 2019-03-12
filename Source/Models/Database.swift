@@ -39,7 +39,7 @@ public final class Database {
         }
     }
 
-    public func write<Model: Persistable>(_ query: Model.Query, _ model: Model) throws {
+    public func write<Model: Persistable>(_ query: Model.WriteQuery, _ model: Model) throws {
         do {
             try query.run(persisting: model, inside: database)
         } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
