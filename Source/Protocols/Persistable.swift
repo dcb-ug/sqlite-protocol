@@ -10,7 +10,7 @@ import SQLite
 
 public protocol Persistable {
     associatedtype Columns
-    associatedtype Query: DatabseQuery = DefaultQuery<Self> where Query.Model == Self
+    associatedtype Query: DatabaseQuery = DefaultQuery<Self> where Query.Model == Self
 
     static var table: Table { get }
     var databaseRowSelector: Expression<Bool> { get }

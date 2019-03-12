@@ -17,7 +17,7 @@
 		640727EF2237EDF100D9D39F /* DefaultPersitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E52237EDF100D9D39F /* DefaultPersitable.swift */; };
 		640727F02237EDF100D9D39F /* DefaultQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E62237EDF100D9D39F /* DefaultQuery.swift */; };
 		640727F12237EDF100D9D39F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E72237EDF100D9D39F /* Database.swift */; };
-		640727F22237EDF100D9D39F /* DatabseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E82237EDF100D9D39F /* DatabseQuery.swift */; };
+		640727F22237EDF100D9D39F /* DatabaseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E82237EDF100D9D39F /* DatabaseQuery.swift */; };
 		640727F32237EDF100D9D39F /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E92237EDF100D9D39F /* Persistable.swift */; };
 		640727F42237EDF100D9D39F /* Array+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727EA2237EDF100D9D39F /* Array+Persistable.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		640727E52237EDF100D9D39F /* DefaultPersitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPersitable.swift; sourceTree = "<group>"; };
 		640727E62237EDF100D9D39F /* DefaultQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultQuery.swift; sourceTree = "<group>"; };
 		640727E72237EDF100D9D39F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		640727E82237EDF100D9D39F /* DatabseQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabseQuery.swift; sourceTree = "<group>"; };
+		640727E82237EDF100D9D39F /* DatabaseQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseQuery.swift; sourceTree = "<group>"; };
 		640727E92237EDF100D9D39F /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		640727EA2237EDF100D9D39F /* Array+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Persistable.swift"; sourceTree = "<group>"; };
 		640727F92237F15100D9D39F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				640727E92237EDF100D9D39F /* Persistable.swift */,
-				640727E82237EDF100D9D39F /* DatabseQuery.swift */,
+				640727E82237EDF100D9D39F /* DatabaseQuery.swift */,
 				640727E12237EDF100D9D39F /* ColumnSettersProviding.swift */,
 				640727E22237EDF100D9D39F /* DefaultQueryProviding.swift */,
 				640727E32237EDF100D9D39F /* ArrayQueryProviding.swift */,
@@ -261,7 +261,7 @@
 			files = (
 				640727F32237EDF100D9D39F /* Persistable.swift in Sources */,
 				640727F02237EDF100D9D39F /* DefaultQuery.swift in Sources */,
-				640727F22237EDF100D9D39F /* DatabseQuery.swift in Sources */,
+				640727F22237EDF100D9D39F /* DatabaseQuery.swift in Sources */,
 				640727EB2237EDF100D9D39F /* ColumnSettersProviding.swift in Sources */,
 				640727EF2237EDF100D9D39F /* DefaultPersitable.swift in Sources */,
 				640727ED2237EDF100D9D39F /* ArrayQueryProviding.swift in Sources */,
@@ -408,7 +408,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SQliteProtocol/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -434,7 +434,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SQliteProtocol/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

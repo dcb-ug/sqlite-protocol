@@ -14,7 +14,7 @@ public final class DefaultQuery<Model>: AnyQuery<Model> {}
 extension DefaultQuery: DefaultQueryProviding where Model: Persistable & ColumnSettersProviding {
     public static var delete: DefaultQuery {
         return DefaultQuery { model, database in
-            let row = User.table.filter(model.databaseRowSelector)
+            let row = Model.table.filter(model.databaseRowSelector)
             try database.run(row.delete())
         }
     }
@@ -35,7 +35,7 @@ extension DefaultQuery where Model: Collection,
             if Model.Element.Query.self == DefaultQuery<Model.Element>.self {
                 // if the query for the collection member is the default delete-query written above
                 // we can just select all rows and delte them at once
-                let row = User.table.filter(models.databaseRowSelector)
+                let row = Model.table.filter(models.databaseRowSelector)
                 try database.run(row.delete())
             } else {
                 // but when we don't know the content and side effects of the delete-query

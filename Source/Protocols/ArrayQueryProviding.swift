@@ -10,5 +10,5 @@ import Foundation
 import SQLite
 
 public protocol ArrayQueryProviding {
-    associatedtype ArrayQuery: DatabseQuery = DefaultQuery<[Self]> where ArrayQuery.Model == [Self]
+    associatedtype ArrayQuery: DatabaseQuery = DefaultQuery<[Self]> where ArrayQuery.Model == [Self]
 }

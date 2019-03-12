@@ -12,3 +12,16 @@ pod 'SQLiteProtocol', '[version]'
 end
 ````
 **Run**: `pod install`
+
+## Documentation
+
+first
+```bash
+brew install soucedocs
+```
+
+then run
+```bash
+sourcedocs generate
+```
+

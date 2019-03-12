@@ -50,9 +50,3 @@ final class Database {
         }
     }
 }
-
-func run() throws {
-    let db = Database()
-    let currentUser = AppManager.CurrentUser.none
-    try db.write(.createOrUpdate, [currentUser])
-}
