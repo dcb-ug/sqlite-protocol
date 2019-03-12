@@ -1,5 +1,7 @@
 # SQLite Protocol
 
+**!! This is very much work in progress !!**
+
 for a reference documentation look [here](./Documentation/Reference) or use the quick look feature from xcode (option click)
 
 ## Install
