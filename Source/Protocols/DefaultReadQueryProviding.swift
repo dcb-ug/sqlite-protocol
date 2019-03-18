@@ -7,6 +7,6 @@
 public protocol DefaultReadQueryProviding {
     associatedtype PrimaryKeyType
 
-    static var getFirst: Self { get }
-    static func getByPrimaryKey(_ key: PrimaryKeyType) -> Self
+    static var first: Self { get }
+    static func withPrimaryKey(_ key: PrimaryKeyType) -> Self
 }

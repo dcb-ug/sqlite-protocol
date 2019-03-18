@@ -35,9 +35,7 @@ public final class Database {
         do {
             return try query.run(inside: database)
         } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
-            let createTable = Model.table.create(ifNotExists: true, block: Model.schema)
-            try database.run(createTable)
-            return try query.run(inside: database)
+            return nil
         }
     }
 }
