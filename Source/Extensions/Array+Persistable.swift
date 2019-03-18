@@ -8,6 +8,7 @@
 //import Foundation
 import SQLite
 
+/// When an Element of an Array is Persistable the array is Persistable too
 extension Array: Persistable where Element: Persistable & ArrayQueryProviding {
     // TODO: Im not shure this creates the correct expression to select multiple rows
     // especially I have no idea what Expression<Bool>("") means when it is combined with an other expression

@@ -8,6 +8,7 @@
 //import Foundation
 import SQLite
 
+/// Subclass this if you want to write your own custom write queries
 open class AnyWriteQuery<Model>: WriteQueryProtocol {
     private let block: (Model, Connection) throws -> Void
 

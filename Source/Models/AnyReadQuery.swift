@@ -5,9 +5,9 @@
 //  Created by Manuel Reich on 21.12.18.
 //
 
-//import Foundation
 import SQLite
 
+/// Subclass this if you want to write your own custom read queries
 open class AnyReadQuery<Model>: ReadQueryProtocol {
     private let block: (Connection) throws -> Model?
 

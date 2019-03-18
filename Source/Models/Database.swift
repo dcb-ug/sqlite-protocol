@@ -8,6 +8,7 @@
 //import Foundation
 import SQLite
 
+/// Stores a shared Connection to a Database and provides functions to run read or write queries
 public final class Database {
     private static var sharedConnection: Connection?
     private let database: Connection
