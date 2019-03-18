@@ -1,5 +1,5 @@
 //
-//  AnyQuery.swift
+//  AnyWriteQuery.swift
 //  enter-ios
 //
 //  Created by Manuel Reich on 21.12.18.
@@ -8,7 +8,7 @@
 //import Foundation
 import SQLite
 
-open class AnyQuery<Model>: WriteQueryProtocol {
+open class AnyWriteQuery<Model>: WriteQueryProtocol {
     private let block: (Model, Connection) throws -> Void
 
     public init(block: @escaping (Model, Connection) throws -> Void) {

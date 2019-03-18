@@ -18,14 +18,15 @@ extension Array: Persistable where Element: Persistable & ArrayQueryProviding {
     }
 
     public typealias Columns = Element.Columns
-    public typealias WriteQuery = Element.ArrayQuery
+    public typealias WriteQuery = Element.ArrayWriteQuery
 
     public static var table: Table {
         return Element.table
     }
 
     public init(databaseRow: Row) throws {
-        self = []
+        let model = try Element(databaseRow: databaseRow)
+        self = [model]
     }
 
     public static func schema(tableBuilder: TableBuilder) {

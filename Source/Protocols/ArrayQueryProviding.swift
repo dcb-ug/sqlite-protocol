@@ -7,5 +7,5 @@
 import SQLite
 
 public protocol ArrayQueryProviding {
-    associatedtype ArrayQuery: WriteQueryProtocol = DefaultQuery<[Self]> where ArrayQuery.Model == [Self]
+    associatedtype ArrayWriteQuery: WriteQueryProtocol = DefaultWriteQuery<[Self]> where ArrayWriteQuery.Model == [Self]
 }
