@@ -8,6 +8,8 @@ import SQLite
 public protocol DefaultReadQueryProviding {
     associatedtype PrimaryKeyType
 
+    static var table: Table { get }
+
     static var first: Self { get }
     static func withPrimaryKey(_ key: PrimaryKeyType) -> Self
 }

@@ -7,7 +7,7 @@
 
 import SQLite
 
-public final class DefaultWriteQuery<Model>: AnyWriteQuery<Model> {}
+public final class DefaultWriteQuery<Model: Persistable>: AnyWriteQuery<Model> {}
 
 extension DefaultWriteQuery: DefaultWriteQueryProviding where Model: Persistable {
     public static var delete: DefaultWriteQuery {

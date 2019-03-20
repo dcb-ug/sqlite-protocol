@@ -6,6 +6,6 @@
 
 import SQLite
 
-public protocol ArrayQueryProviding {
+public protocol ArrayQueryProviding: Persistable {
     associatedtype ArrayWriteQuery: WriteQueryProtocol = DefaultWriteQuery<[Self]> where ArrayWriteQuery.Model == [Self]
 }

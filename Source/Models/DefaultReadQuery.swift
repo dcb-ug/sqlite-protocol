@@ -32,7 +32,8 @@ extension DefaultReadQuery: DefaultReadQueryProviding where Model: Persistable {
 
 extension DefaultReadQuery where Model: Sequence,
                                  Model: ContsructableFromArray,
-                                 Model.Element: Persistable {
+                                 Model.Element: Persistable,
+                                 Model.Element.ReadQuery: DefaultReadQueryProviding {
     public static var all: DefaultReadQuery {
         return DefaultReadQuery { database in
             let rows = try database.prepare(Model.Element.ReadQuery.table)
