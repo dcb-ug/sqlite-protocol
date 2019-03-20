@@ -10,6 +10,8 @@ import SQLite
 
 /// When an Element of an Array is Persistable the array is Persistable too
 extension Array: Persistable where Element: Persistable & ArrayQueryProviding {
+    public typealias Schema = Element.Schema
+
     // TODO: Im not shure this creates the correct expression to select multiple rows
     // especially I have no idea what Expression<Bool>("") means when it is combined with an other expression
     public var singleRowSelector: Expression<Bool> {
@@ -18,19 +20,18 @@ extension Array: Persistable where Element: Persistable & ArrayQueryProviding {
         }
     }
 
-    public typealias Columns = Element.Columns
-    public typealias WriteQuery = Element.ArrayWriteQuery
+//    public typealias WriteQuery = Element.ArrayWriteQuery
 
     public static var table: Table {
-        return Element.table
+        return Element.Schema.table
     }
 
-    public init(databaseRow: Row) throws {
+    public init(databaseRow: Schema) throws {
         let model = try Element(databaseRow: databaseRow)
         self = [model]
     }
-
-    public static func schema(tableBuilder: TableBuilder) {
-        Element.schema(tableBuilder: tableBuilder)
-    }
+//
+//    public static func schema(tableBuilder: TableBuilder) {
+//        Element.schema(tableBuilder: tableBuilder)
+//    }
 }

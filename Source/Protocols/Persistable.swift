@@ -7,28 +7,9 @@
 import SQLite
 
 public protocol Persistable {
-    associatedtype Columns
+    associatedtype Schema: TableSchema where Schema.Model == Self
     associatedtype WriteQuery: WriteQueryProtocol = DefaultWriteQuery<Self> where WriteQuery.Model == Self
     associatedtype ReadQuery: ReadQueryProtocol = DefaultReadQuery<Self> where ReadQuery.Model == Self
 
-    static var table: Table { get }
-    var singleRowSelector: Expression<Bool> { get }
-
-    init(databaseRow: Row) throws
-
-    static func schema(tableBuilder: TableBuilder)
-}
-
-extension Persistable where Self: ColumnSettersProviding {
-    public static func schema(tableBuilder: TableBuilder) {
-        for columnSetter in self.columnSetters {
-            columnSetter.columnBuilder(tableBuilder)
-        }
-    }
-}
-
-extension Persistable where Self: PrimaryKeyProviding {
-    public var singleRowSelector: Expression<Bool> {
-        return Self.primaryKey == self.primaryKeyValue
-    }
+    init(databaseRow: Schema) throws
 }

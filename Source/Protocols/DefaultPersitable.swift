@@ -6,4 +6,4 @@
 
 //import Foundation
 
-public typealias DefaultPersistable = Persistable & PrimaryKeyProviding & ColumnSettersProviding & ArrayQueryProviding
+public typealias DefaultPersistable = Persistable & ArrayQueryProviding
