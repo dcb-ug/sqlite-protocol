@@ -13,7 +13,7 @@ extension DefaultWriteQuery: DefaultWriteQueryProviding where Model: Persistable
     public static var delete: DefaultWriteQuery {
         return DefaultWriteQuery { model, database in
             let columns = Model.Columns(model: model)
-            let row = Model.Columns.table.filter(columns.primaryKeySelector)
+            let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
             try database.run(row.delete())
         }
     }
@@ -21,7 +21,7 @@ extension DefaultWriteQuery: DefaultWriteQueryProviding where Model: Persistable
     public static var createOrUpdate: DefaultWriteQuery {
         return DefaultWriteQuery { model, database in
             let setters = Model.Columns.columns.map { $0.setterBuilder(model) }
-            try database.run(Model.Columns.table.insert(or: .replace, setters))
+            try database.run(DefaultWriteQuery.table.insert(or: .replace, setters))
         }
     }
 }
@@ -32,11 +32,12 @@ extension DefaultWriteQuery where Model: Sequence,
                                   Model.Element.WriteQuery: DefaultWriteQueryProviding {
     public static var delete: DefaultWriteQuery {
         return DefaultWriteQuery { models, database in
+            let table = Model.Element.WriteQuery.table
             if Model.Element.WriteQuery.self == DefaultWriteQuery<Model.Element>.self {
                 // if the query for the sequence member is the default delete-query written above
                 // we can just select all rows and delte them at once
                 let columns = Model.Columns(model: models)
-                let row = Model.Columns.table.filter(columns.primaryKeySelector)
+                let row = table.filter(columns.primaryKeySelector)
                 try database.run(row.delete())
             } else {
                 // but when we don't know the content and side effects of the delete-query

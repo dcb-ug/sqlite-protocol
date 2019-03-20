@@ -20,7 +20,6 @@ public protocol Schema {
                         columnBuilder: (TableBuilder) -> Void,
                         addColumnValue: (Row, Self) -> Self)
 
-    static var table: Table { get }
     static var columns: [Column] { get }
     static var primaryKey: PrimaryKey<Self, PrimaryKeyType> { get }
 
