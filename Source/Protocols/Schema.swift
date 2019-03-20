@@ -1,5 +1,5 @@
 //
-//  TableSchema.swift
+//  Schema.swift
 //  SQLiteProtocol
 //
 //  Created by Manuel Reich on 20.03.19.
@@ -12,7 +12,7 @@ public struct PrimaryKey<Schema, KeyType> {
     let path: KeyPath<Schema, KeyType>
 }
 
-public protocol TableSchema {
+public protocol Schema {
     associatedtype Model
     associatedtype PrimaryKeyType: Value where PrimaryKeyType.Datatype: Equatable
 
@@ -28,7 +28,7 @@ public protocol TableSchema {
     init(model: Model)
 }
 
-extension TableSchema {
+extension Schema {
 
     public static func columnBuilder<Property: Value>(path: WritableKeyPath<Self, Property>, name: String) -> Column {
         let expression = Expression<Property>(name)
