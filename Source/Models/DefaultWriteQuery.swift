@@ -19,7 +19,8 @@ extension DefaultWriteQuery: DefaultWriteQueryProviding where Model: Persistable
 
     public static var createOrUpdate: DefaultWriteQuery {
         return DefaultWriteQuery { model, database in
-            try database.run(Model.table.insert(or: .replace, model.columnSetters))
+            let setters = Model.columnSetters.map { $0.setterBuilder(model) }
+            try database.run(Model.table.insert(or: .replace, setters))
         }
     }
 }

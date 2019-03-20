@@ -19,6 +19,14 @@ public protocol Persistable {
     static func schema(tableBuilder: TableBuilder)
 }
 
+extension Persistable where Self: ColumnSettersProviding {
+    public static func schema(tableBuilder: TableBuilder) {
+        for columnSetter in self.columnSetters {
+            columnSetter.columnBuilder(tableBuilder)
+        }
+    }
+}
+
 extension Persistable where Self: PrimaryKeyProviding {
     public var singleRowSelector: Expression<Bool> {
         return Self.primaryKey == self.primaryKeyValue
