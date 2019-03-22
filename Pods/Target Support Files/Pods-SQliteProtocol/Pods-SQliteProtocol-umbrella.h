@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SQliteProtocolVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SQliteProtocolVersionString[];
+FOUNDATION_EXPORT double Pods_SQLiteProtocolVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SQLiteProtocolVersionString[];
 

@@ -1,4 +1,4 @@
-framework module SQliteProtocol {
-  header "SQliteProtocol-Swift.h"
+framework module SQLiteProtocol {
+  header "SQLiteProtocol-Swift.h"
   requires objc
 }

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Manuel/Documents/enter/SQliteProtocol/SQLiteProtocol.xcodeproj">
+      location = "group:SQLiteProtocol.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
