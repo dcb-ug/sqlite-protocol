@@ -45,11 +45,11 @@ extension Schema {
 
         let columnBuilder = { (tableBuilder: TableBuilder) in tableBuilder.column(expression) }
 
-        let addColumnValue = { (row: Row, schema: Self) -> Self in
-            var schema = schema
+        let addColumnValue = { (row: Row, columns: Self) -> Self in
+            var columns = columns
             let value = row[expression]
-            schema[keyPath: path] = value
-            return schema
+            columns[keyPath: path] = value
+            return columns
         }
 
         return (setterBuilder, columnBuilder, addColumnValue)
@@ -66,11 +66,11 @@ extension Schema {
     }
 
     public static func from(row: Row) -> Self {
-        var schema = Self.init()
+        var columns = Self.init()
         for column in self.columns {
-            schema = column.addColumnValue(row, schema)
+            columns = column.addColumnValue(row, columns)
         }
-        return schema
+        return columns
     }
 
     public static func primaryKeySelector(value: PrimaryKeyType) -> Expression<Bool> {

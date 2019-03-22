@@ -9,17 +9,17 @@ import SQLite
 
 public final class DefaultWriteQuery<Model: Persistable>: AnyWriteQuery<Model> {
     public static var delete: DefaultWriteQuery {
-        return DefaultWriteQuery { model, database in
+        return DefaultWriteQuery { model, connection in
             let columns = Model.Columns(model: model)
             let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
-            try database.run(row.delete())
+            try connection.run(row.delete())
         }
     }
 
     public static var createOrUpdate: DefaultWriteQuery {
-        return DefaultWriteQuery { model, database in
+        return DefaultWriteQuery { model, connection in
             let setters = Model.Columns.columns.map { $0.setterBuilder(model) }
-            try database.run(DefaultWriteQuery.table.insert(or: .replace, setters))
+            try connection.run(DefaultWriteQuery.table.insert(or: .replace, setters))
         }
     }
 }

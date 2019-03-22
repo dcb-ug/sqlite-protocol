@@ -14,10 +14,10 @@ open class AnyWriteQuery<Model: Persistable>: WriteQueryProtocol {
         return Table(name)
     }
 
-    public func createTableIfNotExists(using database: Connection) throws {
+    public func createTableIfNotExists(using connection: Connection) throws {
         let block = Model.Columns.buildTable
         let createTable = AnyWriteQuery.table.create(ifNotExists: true, block: block)
-        try database.run(createTable)
+        try connection.run(createTable)
     }
 
     private let block: (Model, Connection) throws -> Void
