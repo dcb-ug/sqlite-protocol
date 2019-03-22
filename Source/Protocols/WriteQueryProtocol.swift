@@ -1,14 +1,13 @@
 //
 //  WriteQueryProtocol.swift
+//  SQLiteProtocol
 //
-//  Created by Manuel Reich on 21.12.18.
+//  Created by Manuel Reich on 22.03.19.
 //
-
 import SQLite
 
 public protocol WriteQueryProtocol {
     associatedtype Model
-
-    func run(persisting model: Model, inside database: Connection) throws
-    func createTableIfNotExists(inside database: Connection) throws
+    func createTableIfNotExists(using connection: Connection) throws
+    func run(persisting model: Model, using connection: Connection) throws
 }

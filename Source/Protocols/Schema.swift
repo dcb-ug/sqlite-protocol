@@ -8,8 +8,13 @@
 import SQLite
 
 public struct PrimaryKey<Schema, KeyType> {
-    let name: String
-    let path: KeyPath<Schema, KeyType>
+    public let name: String
+    public let path: KeyPath<Schema, KeyType>
+
+    public init(name: String, keyPath: KeyPath<Schema, KeyType>) {
+        self.name = name
+        self.path = keyPath
+    }
 }
 
 public protocol Schema {
@@ -29,8 +34,8 @@ public protocol Schema {
 
 extension Schema {
 
-    public static func columnBuilder<Property: Value>(path: WritableKeyPath<Self, Property>, name: String) -> Column {
-        let expression = Expression<Property>(name)
+    public static func columnBuilder<Property: Value>(path: WritableKeyPath<Self, Property?>, name: String) -> Column {
+        let expression = Expression<Property?>(name)
 
         let setterBuilder = {(model: Model) -> Setter in
             let schema = Self(model: model)
@@ -48,6 +53,10 @@ extension Schema {
         }
 
         return (setterBuilder, columnBuilder, addColumnValue)
+    }
+
+    public static func columnBuilder<Property: Value>(path: WritableKeyPath<Self, Property>, name: String) -> Column {
+        return columnBuilder(path: path, name: name)
     }
 
     public static func buildTable(tableBuilder: TableBuilder) {

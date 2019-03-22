@@ -1,6 +1,6 @@
 //
 //  AnyReadQuery.swift
-//  enter-ios
+//  SQLiteProtocol
 //
 //  Created by Manuel Reich on 21.12.18.
 //
@@ -14,17 +14,13 @@ open class AnyReadQuery<Model>: ReadQueryProtocol {
         return Table(name)
     }
 
-    private let block: (Connection) throws -> Model?
+    private let block: (Connection) throws -> [Model]
 
-    public init(block: @escaping (Connection) throws -> Model?) {
+    public init(block: @escaping (Connection) throws -> [Model]) {
         self.block = block
     }
 
-    public func run(inside database: Connection) throws -> Model? {
-        do {
-            return try self.block(database)
-        } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
-            return nil
-        }
+    public func run(using connection: Connection) throws -> [Model] {
+        return try self.block(connection)
     }
 }
