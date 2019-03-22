@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "SQLiteProtocol"
-  s.version       = "0.1.1"
+  s.version       = "0.1.2"
   s.summary       = "Basic database operations for swift and sqlite by making classes or structs conform to a protocol "
 
   s.homepage      = "https://github.com/dcb-ug/sqlite-protocol"
