@@ -4,23 +4,23 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/Manuel/Documents/enter/SQliteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Headers",
+      'name': "/Users/manuelreich/Documents/wundf-dev/DCB/Enter/SQLiteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "SQliteProtocol-Swift.h",
-          'external-contents': "/Users/Manuel/Documents/enter/SQliteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Headers/SQliteProtocol-Swift.h"
+          'external-contents': "/Users/manuelreich/Documents/wundf-dev/DCB/Enter/SQLiteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Headers/SQliteProtocol-Swift.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/Manuel/Documents/enter/SQliteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Modules",
+      'name': "/Users/manuelreich/Documents/wundf-dev/DCB/Enter/SQLiteProtocol/build/Release-iphoneos/SQliteProtocol.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/Manuel/Documents/enter/SQliteProtocol/build/SQliteProtocol.build/Release-iphoneos/SQliteProtocol.build/module.modulemap"
+          'external-contents': "/Users/manuelreich/Documents/wundf-dev/DCB/Enter/SQLiteProtocol/build/SQLiteProtocol.build/Release-iphoneos/SQliteProtocol.build/module.modulemap"
         }
       ]
     }
