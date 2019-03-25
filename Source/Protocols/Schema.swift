@@ -32,7 +32,10 @@ extension Schema {
             return expression <- value
         }
 
-        let columnBuilder = { (tableBuilder: TableBuilder) in tableBuilder.column(expression) }
+        let columnBuilder = { (tableBuilder: TableBuilder) in
+            let isPrimary = name == Self.primaryKey.column
+            tableBuilder.column(expression, primaryKey: isPrimary)
+        }
 
         let addColumnValue = { (row: Row, columns: Self) -> Self in
             var columns = columns
@@ -54,7 +57,10 @@ extension Schema {
             return expression <- value
         }
 
-        let columnBuilder = { (tableBuilder: TableBuilder) in tableBuilder.column(expression) }
+        let columnBuilder = { (tableBuilder: TableBuilder) in
+            // optional values can't be a primaryKey
+            tableBuilder.column(expression)
+        }
 
         let addColumnValue = { (row: Row, columns: Self) -> Self in
             var columns = columns
