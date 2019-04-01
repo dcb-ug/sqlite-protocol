@@ -8,11 +8,7 @@
 import SQLite
 
 /// Subclass this if you want to write your own custom read queries
-open class AnyReadQuery<Model>: ReadQueryProtocol {
-    public static var table: Table {
-        let name = "\(Model.self)"
-        return Table(name)
-    }
+open class AnyReadQuery<Model> {
 
     private let block: (Connection) throws -> [Model]
 

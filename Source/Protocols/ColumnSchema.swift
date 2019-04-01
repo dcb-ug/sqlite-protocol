@@ -1,5 +1,5 @@
 //
-//  Schema.swift
+//  ColumnSchema.swift
 //  SQLiteProtocol
 //
 //  Created by Manuel Reich on 20.03.19.
@@ -7,11 +7,11 @@
 
 import SQLite
 
-public protocol Schema {
+public protocol ColumnSchema {
     associatedtype Model
     associatedtype PrimaryKeyType: Value where PrimaryKeyType.Datatype: Equatable
 
-    typealias ColumnDescription = (setterBuilder: (Model) -> Setter,
+    typealias ColumnDescription = (setterBuilder: (Model) throws -> Setter,
                                    columnBuilder: (TableBuilder) -> Void,
                                    addColumnValue: (Row, Self) -> Self)
 
@@ -19,15 +19,15 @@ public protocol Schema {
     static var primaryKey: Column<Self, PrimaryKeyType> { get }
 
     init()
-    init(model: Model)
+    init(model: Model) throws
 }
 
-extension Schema {
+extension ColumnSchema {
     public static func build<Property: Value>(name: String, keyPath: WritableKeyPath<Self, Property>) -> ColumnDescription {
         let expression = Expression<Property>(name)
 
         let setterBuilder = {(model: Model) -> Setter in
-            let schema = Self(model: model)
+            let schema = try Self(model: model)
             let value = schema[keyPath: keyPath]
             return expression <- value
         }
@@ -52,7 +52,7 @@ extension Schema {
         let expression = Expression<Property?>(name)
 
         let setterBuilder = {(model: Model) -> Setter in
-            let schema = Self(model: model)
+            let schema = try Self(model: model)
             let value = schema[keyPath: keyPath]
             return expression <- value
         }

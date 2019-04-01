@@ -8,17 +8,7 @@
 import SQLite
 
 /// Subclass this if you want to write your own custom write queries
-open class AnyWriteQuery<Model: Persistable>: WriteQueryProtocol {
-    public static var table: Table {
-        let name = "\(Model.self)"
-        return Table(name)
-    }
-
-    public func createTableIfNotExists(using connection: Connection) throws {
-        let block = Model.Columns.buildTable
-        let createTable = AnyWriteQuery.table.create(ifNotExists: true, block: block)
-        try connection.run(createTable)
-    }
+open class AnyWriteQuery<Model> {
 
     private let block: (Model, Connection) throws -> Void
 

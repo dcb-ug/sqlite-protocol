@@ -10,3 +10,10 @@ public protocol ReadQueryProtocol {
     associatedtype Model
     func run(using connection: Connection) throws -> [Model]
 }
+
+extension ReadQueryProtocol {
+    public static var table: Table {
+        let name = "\(Model.self)"
+        return Table(name)
+    }
+}

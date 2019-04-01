@@ -26,7 +26,7 @@ public final class Database {
         do {
             try query.run(persisting: model, using: connection)
         } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
-            try query.createTableIfNotExists(using: connection)
+            try Model.WriteQuery.createTableIfNotExists(for: model, using: connection)
             try query.run(persisting: model, using: connection)
         }
     }

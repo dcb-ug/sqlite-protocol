@@ -7,10 +7,10 @@
 
 import SQLite
 
-public final class DefaultWriteQuery<Model: Persistable>: AnyWriteQuery<Model> {
+public final class DefaultWriteQuery<Model: Persistable>: WriteQueryProtocol {
     public static var delete: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-            let columns = Model.Columns(model: model)
+            let columns = try Model.Columns(model: model)
             let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
             try connection.run(row.delete())
         }
@@ -18,40 +18,18 @@ public final class DefaultWriteQuery<Model: Persistable>: AnyWriteQuery<Model> {
 
     public static var createOrUpdate: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-            let setters = Model.Columns.columns.map { $0.setterBuilder(model) }
+            let setters = try Model.Columns.columns.map { try $0.setterBuilder(model) }
             try connection.run(DefaultWriteQuery.table.insert(or: .replace, setters))
         }
     }
-}
 
-//extension DefaultWriteQuery where Model: Sequence,
-//                                  Model: Persistable,
-//                                  Model.Element: Persistable,
-//                                  Model.Element.WriteQuery: DefaultWriteQueryProviding {
-//    public static var delete: DefaultWriteQuery {
-//        return DefaultWriteQuery { models, database in
-//            let table = Model.Element.WriteQuery.table
-//            if Model.Element.WriteQuery.self == DefaultWriteQuery<Model.Element>.self {
-//                // if the query for the sequence member is the default delete-query written above
-//                // we can just select all rows and delte them at once
-//                let columns = Model.Columns(model: models)
-//                let row = table.filter(columns.primaryKeySelector)
-//                try database.run(row.delete())
-//            } else {
-//                // but when we don't know the content and side effects of the delete-query
-//                // we have to actually run it for each member of the sequence
-//                for model in models {
-//                    try Model.Element.WriteQuery.delete.run(persisting: model, inside: database)
-//                }
-//            }
-//        }
-//    }
-//
-//    public static var createOrUpdate: DefaultWriteQuery {
-//        return DefaultWriteQuery { models, database in
-//            for model in models {
-//                try Model.Element.WriteQuery.createOrUpdate.run(persisting: model, inside: database)
-//            }
-//        }
-//    }
-//}
+    private let block: (Model, Connection) throws -> Void
+
+    init(_ block: @escaping (Model, Connection) throws -> Void) {
+        self.block = block
+    }
+
+    public func run(persisting model: Model, using connection: Connection) throws {
+        try self.block(model, connection)
+    }
+}

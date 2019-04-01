@@ -7,7 +7,7 @@
 
 import SQLite
 
-public final class DefaultReadQuery<Model: Persistable>: AnyReadQuery<Model> {
+public final class DefaultReadQuery<Model: Persistable>: ReadQueryProtocol {
     public typealias PrimaryKeyType = Model.Columns.PrimaryKeyType
 
     public static var first: DefaultReadQuery {
@@ -35,5 +35,15 @@ public final class DefaultReadQuery<Model: Persistable>: AnyReadQuery<Model> {
                 return try Model(databaseColumns: columns)
             }
         }
+    }
+
+    private let block: (Connection) throws -> [Model]
+
+    init(_ block: @escaping (Connection) throws -> [Model]) {
+        self.block = block
+    }
+
+    public func run(using connection: Connection) throws -> [Model] {
+        return try self.block(connection)
     }
 }
