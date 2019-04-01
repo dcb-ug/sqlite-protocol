@@ -11,77 +11,23 @@ public protocol ColumnSchema {
     associatedtype Model
     associatedtype PrimaryKeyType: Value where PrimaryKeyType.Datatype: Equatable
 
-    typealias ColumnDescription = (setterBuilder: (Model) throws -> Setter,
-                                   columnBuilder: (TableBuilder) -> Void,
-                                   addColumnValue: (Row, Self) -> Self)
-
-    static var columns: [ColumnDescription] { get }
+    static var columns: [Builder<Model, Self>] { get }
     static var primaryKey: Column<Self, PrimaryKeyType> { get }
 
     init()
-    init(model: Model) throws
 }
 
 extension ColumnSchema {
-    public static func build<Property: Value>(name: String, keyPath: WritableKeyPath<Self, Property>) -> ColumnDescription {
-        let expression = Expression<Property>(name)
-
-        let setterBuilder = {(model: Model) -> Setter in
-            let schema = try Self(model: model)
-            let value = schema[keyPath: keyPath]
-            return expression <- value
-        }
-
-        let columnBuilder = { (tableBuilder: TableBuilder) in
-            let isPrimary = name == Self.primaryKey.name
-            tableBuilder.column(expression, primaryKey: isPrimary)
-        }
-
-        let addColumnValue = { (row: Row, columns: Self) -> Self in
-            var columns = columns
-            let value = row[expression]
-            columns[keyPath: keyPath] = value
-            return columns
-        }
-
-        return (setterBuilder, columnBuilder, addColumnValue)
-    }
-
-    // TODO: this must be possible without writeing everything twice
-    public static func build<Property: Value>(name: String, keyPath: WritableKeyPath<Self, Property?>) -> ColumnDescription {
-        let expression = Expression<Property?>(name)
-
-        let setterBuilder = {(model: Model) -> Setter in
-            let schema = try Self(model: model)
-            let value = schema[keyPath: keyPath]
-            return expression <- value
-        }
-
-        let columnBuilder = { (tableBuilder: TableBuilder) in
-            // optional values can't be a primaryKey
-            tableBuilder.column(expression)
-        }
-
-        let addColumnValue = { (row: Row, columns: Self) -> Self in
-            var columns = columns
-            let value = row[expression]
-            columns[keyPath: keyPath] = value
-            return columns
-        }
-
-        return (setterBuilder, columnBuilder, addColumnValue)
-    }
-
     public static func buildTable(tableBuilder: TableBuilder) {
         for column in self.columns {
-            column.columnBuilder(tableBuilder)
+            column.createColumn(tableBuilder)
         }
     }
 
     public static func from(row: Row) -> Self {
         var columns = Self.init()
         for column in self.columns {
-            columns = column.addColumnValue(row, columns)
+            column.addValue(row, &columns)
         }
         return columns
     }

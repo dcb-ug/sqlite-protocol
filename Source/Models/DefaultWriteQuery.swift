@@ -10,15 +10,15 @@ import SQLite
 public final class DefaultWriteQuery<Model: Persistable>: WriteQueryProtocol {
     public static var delete: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-            let columns = try Model.Columns(model: model)
-            let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
-            try connection.run(row.delete())
+//            let columns = try Model.Columns(model: model)
+//            let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
+//            try connection.run(row.delete())
         }
     }
 
     public static var createOrUpdate: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-            let setters = try Model.Columns.columns.map { try $0.setterBuilder(model) }
+            let setters = try Model.Columns.columns.map { try $0.buildSetter(model) }
             try connection.run(DefaultWriteQuery.table.insert(or: .replace, setters))
         }
     }
