@@ -10,9 +10,10 @@ import SQLite
 public final class DefaultWriteQuery<Model: Persistable>: WriteQueryProtocol {
     public static var delete: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-//            let columns = try Model.Columns(model: model)
-//            let row = DefaultWriteQuery.table.filter(columns.primaryKeySelector)
-//            try connection.run(row.delete())
+            let primaryKeyValue = try Model.Columns.primaryColumn.value(from: model)
+            let primaryKeySelector = Model.Columns.primaryKeySelector(value: primaryKeyValue)
+            let row = DefaultWriteQuery.table.filter(primaryKeySelector)
+            try connection.run(row.delete())
         }
     }
 

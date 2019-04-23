@@ -21,7 +21,7 @@ public struct Builder<Model, Columns: ColumnSchema> {
         }
 
         createColumn = { (tableBuilder: TableBuilder) in
-            let isPrimary = name == Columns.primaryKey.name
+            let isPrimary = name == Columns.primaryColumn.name
             tableBuilder.column(expression, primaryKey: isPrimary)
         }
 

@@ -11,14 +11,15 @@ public protocol ColumnSchema {
     associatedtype Model
     associatedtype PrimaryKeyType: Value where PrimaryKeyType.Datatype: Equatable
 
+    static var primaryColumn: PrimaryColumn<Model, Self, PrimaryKeyType> { get }
     static var columns: [Builder<Model, Self>] { get }
-    static var primaryKey: Column<Self, PrimaryKeyType> { get }
 
     init()
 }
 
 extension ColumnSchema {
     public static func buildTable(tableBuilder: TableBuilder) {
+        self.primaryColumn.builder.createColumn(tableBuilder)
         for column in self.columns {
             column.createColumn(tableBuilder)
         }
@@ -26,6 +27,7 @@ extension ColumnSchema {
 
     public static func from(row: Row) -> Self {
         var columns = Self.init()
+        self.primaryColumn.builder.addValue(row, &columns)
         for column in self.columns {
             column.addValue(row, &columns)
         }
@@ -33,13 +35,7 @@ extension ColumnSchema {
     }
 
     public static func primaryKeySelector(value: PrimaryKeyType) -> Expression<Bool> {
-        let expression = Expression<PrimaryKeyType>(Self.primaryKey.name)
-        return expression == value
-    }
-
-    public var primaryKeySelector: Expression<Bool> {
-        let expression = Expression<PrimaryKeyType>(Self.primaryKey.name)
-        let value = self[keyPath: Self.primaryKey.path]
+        let expression = Expression<PrimaryKeyType>(Self.primaryColumn.name)
         return expression == value
     }
 }
