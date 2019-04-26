@@ -15,6 +15,9 @@ public protocol ColumnSchema {
     static var columns: [Builder<Model, Self>] { get }
 
     init()
+
+    static func buildTable(tableBuilder: TableBuilder)
+    static func from(row: Row) -> Self
 }
 
 extension ColumnSchema {

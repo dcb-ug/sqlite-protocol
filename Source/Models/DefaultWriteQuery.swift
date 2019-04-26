@@ -8,19 +8,15 @@
 import SQLite
 
 public final class DefaultWriteQuery<Model: Persistable>: WriteQueryProtocol {
-    public static var delete: DefaultWriteQuery {
-        return DefaultWriteQuery { model, connection in
-            let primaryKeyValue = try Model.Columns.primaryColumn.value(from: model)
-            let primaryKeySelector = Model.Columns.primaryKeySelector(value: primaryKeyValue)
-            let row = DefaultWriteQuery.table.filter(primaryKeySelector)
-            try connection.run(row.delete())
-        }
+
+    public static func _createOrUpdateFunction(model: Model, connection: Connection) throws {
+        let setters = try Model.Columns.columns.map { try $0.buildSetter(model) }
+        try connection.run(DefaultWriteQuery.table.insert(or: .replace, setters))
     }
 
     public static var createOrUpdate: DefaultWriteQuery {
         return DefaultWriteQuery { model, connection in
-            let setters = try Model.Columns.columns.map { try $0.buildSetter(model) }
-            try connection.run(DefaultWriteQuery.table.insert(or: .replace, setters))
+            try DefaultWriteQuery._createOrUpdateFunction(model: model, connection: connection)
         }
     }
 
