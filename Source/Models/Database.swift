@@ -26,14 +26,14 @@ public final class Database {
         try query.run(persisting: model, using: connection)
     }
 
-    public func write<Model: Persistable>(_ query: Model.WriteQuery, _ model: Model) throws {
-        try query.runAndCreateTableIfNotExists(persisting: model, using: connection)
-    }
-
     public func write<Model: QueryProviding>(_ query: Model.WriteQuery, _ models: [Model]) throws {
         try connection.transaction {
             for model in models { try write(query, model) }
         }
+    }
+
+    public func write<Model: Persistable>(_ query: Model.WriteQuery, _ model: Model) throws {
+        try query.runAndCreateTableIfNotExists(persisting: model, using: connection)
     }
 
     public func write<Model: Persistable>(_ query: Model.WriteQuery, _ models: [Model]) throws {

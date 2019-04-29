@@ -37,6 +37,12 @@ extension ColumnSchema {
         return columns
     }
 
+    public static func getSetters(from model: Model) throws -> [Setter] {
+        let primaryKeySetter = try self.primaryColumn.builder.buildSetter(model)
+        let setters = try self.columns.map { column in try column.buildSetter(model) }
+        return [primaryKeySetter] + setters
+    }
+
     public static func primaryKeySelector(value: PrimaryKeyType) -> Expression<Bool> {
         let expression = Expression<PrimaryKeyType>(Self.primaryColumn.name)
         return expression == value
