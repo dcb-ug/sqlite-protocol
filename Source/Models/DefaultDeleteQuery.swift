@@ -18,6 +18,11 @@ public final class DefaultDeleteQuery<Model: Persistable>: DeleteQueryProtocol {
 
     /// this is exposed like this so you can use it when building your own queries
     public static func _delete(wherePrimaryKeys primaryKeys: [Model.Columns.PrimaryKeyType], connection: Connection) throws {
+        guard primaryKeys.count > 0 else {
+            // this is so that deleting 0 elemnts will not throw an error
+            // even when there was no table created for that model jet
+            return
+        }
         let primaryKeyExpression = Expression<Model.Columns.PrimaryKeyType>(Model.Columns.primaryColumn.name)
         let query = DefaultDeleteQuery.table.filter(primaryKeys.contains(primaryKeyExpression))
         try connection.run(query.delete())
