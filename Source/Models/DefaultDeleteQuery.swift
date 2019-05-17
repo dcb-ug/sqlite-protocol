@@ -13,7 +13,7 @@ public final class DefaultDeleteQuery<Model: Persistable>: DeleteQueryProtocol {
     public static func _delete(wherePrimaryKey primaryKey: Model.Columns.PrimaryKeyType, connection: Connection) throws {
         let primaryKeySelector = Model.Columns.primaryKeySelector(value: primaryKey)
         let query = DefaultDeleteQuery.table.filter(primaryKeySelector)
-        try connection.run(query.delete())
+        try delete(selection: query, using: connection)
     }
 
     /// this is exposed like this so you can use it when building your own queries
@@ -25,13 +25,12 @@ public final class DefaultDeleteQuery<Model: Persistable>: DeleteQueryProtocol {
         }
         let primaryKeyExpression = Expression<Model.Columns.PrimaryKeyType>(Model.Columns.primaryColumn.name)
         let query = DefaultDeleteQuery.table.filter(primaryKeys.contains(primaryKeyExpression))
-        try connection.run(query.delete())
+        try delete(selection: query, using: connection)
     }
 
     /// this is exposed like this so you can use it when building your own queries
     public static func _deleteAll(connection: Connection) throws {
-        let query = DefaultDeleteQuery.table
-        try connection.run(query.delete())
+        try delete(selection: DefaultDeleteQuery.table, using: connection)
     }
 
     public static func `where`(primaryKey: Model.Columns.PrimaryKeyType) -> DefaultDeleteQuery {
@@ -63,6 +62,14 @@ public final class DefaultDeleteQuery<Model: Persistable>: DeleteQueryProtocol {
     public static var all: DefaultDeleteQuery {
         return DefaultDeleteQuery { connection in
             try DefaultDeleteQuery._deleteAll(connection: connection)
+        }
+    }
+
+    private static func delete(selection: Table, using connection: Connection) throws {
+        do {
+            try connection.run(selection.delete())
+        } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
+            // we swallow "no such table" errors because this means the entry is not there
         }
     }
 

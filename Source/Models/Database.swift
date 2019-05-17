@@ -43,19 +43,11 @@ public final class Database {
     }
 
     public func read<Model: QueryProviding>(_ query: Model.ReadQuery, ofType: Model.Type) throws -> [Model] {
-        do {
-            return try query.run(using: connection)
-        } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
-            return []
-        }
+        return try query.run(using: connection)
     }
 
     public func read<Model: Persistable>(_ query: Model.ReadQuery, ofType: Model.Type) throws -> [Model] {
-        do {
-            return try query.run(using: connection)
-        } catch let Result.error(message, code, _) where code == SQLITE_ERROR && message.hasPrefix("no such table") {
-            return []
-        }
+        return try query.run(using: connection)
     }
 
     public func delete<Model: QueryProviding>(_ query: Model.DeleteQuery, ofType type: Model.Type) throws {
