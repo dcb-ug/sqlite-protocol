@@ -10,5 +10,5 @@ public protocol Persistable
 ### `init(databaseColumns:)`
 
 ```swift
-init(databaseColumns: Columns) throws
+init(databaseColumns columns: Columns) throws
 ```

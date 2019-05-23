@@ -6,12 +6,7 @@ This Reference Documentation has been generated with
 
 -   [Persistable](protocols/Persistable.md)
 -   [ReadQueryProtocol](protocols/ReadQueryProtocol.md)
--   [Schema](protocols/Schema.md)
 -   [WriteQueryProtocol](protocols/WriteQueryProtocol.md)
-
-## Structs
-
--   [PrimaryKey](structs/PrimaryKey.md)
 
 ## Classes
 
@@ -21,4 +16,4 @@ This Reference Documentation has been generated with
 
 ## Extensions
 
--   [Schema](extensions/Schema.md)
+-   [WriteQueryProtocol](extensions/WriteQueryProtocol.md)
