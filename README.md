@@ -88,11 +88,13 @@ extension User: Persistable {
 ```swift
     let database = Database()
     
-    // delete by referencing model instance
+    // delete by referencing model
+    // (this simply compares the value defined as the primary key)
     let user = User(username: "my-user", role: "admin")
     try? database.delete(.model(user), ofType: User.self)
     
-    // delete by referencing multiple model instances
+    // delete by referencing multiple models
+    // (this simply compares the values defined as the primary key)
     let users = [
         User(username: "user-1", role: "user"),
         User(username: "user-1", role: "user")
