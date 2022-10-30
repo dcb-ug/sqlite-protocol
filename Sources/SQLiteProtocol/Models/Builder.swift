@@ -12,7 +12,11 @@ public struct Builder<Model, Columns: ColumnSchema> {
     public let createColumn: (TableBuilder) -> Void
     public let addValue: (Row, inout Columns) -> Void
 
-    public init<Property: Value>(_ name: String, _ keyPath: WritableKeyPath<Columns, Property>, _ mapper: @escaping (Model) throws -> Property) {
+    public init<Property: Value>(
+        _ name: String,
+        _ keyPath: WritableKeyPath<Columns, Property>,
+        _ mapper: @escaping (Model) throws -> Property)
+    {
         let expression = Expression<Property>(name)
 
         buildSetter = {(model: Model) -> Setter in
@@ -31,7 +35,11 @@ public struct Builder<Model, Columns: ColumnSchema> {
         }
     }
 
-    public init<Property: Value>(_ name: String, _ keyPath: WritableKeyPath<Columns, Property?>, _ mapper: @escaping (Model) throws -> Property?) {
+    public init<Property: Value>(
+        _ name: String,
+        _ keyPath: WritableKeyPath<Columns, Property?>,
+        _ mapper: @escaping (Model) throws -> Property?)
+    {
         let expression = Expression<Property?>(name)
 
         buildSetter = {(model: Model) -> Setter in

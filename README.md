@@ -100,6 +100,52 @@ extension User: Persistable {
     }
 ```
 
+### Delete
+
+```swift
+    let database = Database()
+    
+    // delete by referencing model instance
+    let user = User(username: "my-user", role: "admin")
+    do {
+        try database.delete(.model(user), ofType: User.self)
+    } catch (let e) {
+        print(e)
+    }
+    
+    // delete by referencing multiple model instances
+    let users = [
+        User(username: "user-1", role: "user"),
+        User(username: "user-1", role: "user")
+    ]
+    do {
+        try database.delete(.models(users), ofType: User.self)
+    } catch (let e) {
+        print(e)
+    }
+    
+    // delete by primary key
+    do {
+        try database.delete(.where(primaryKey: "my-user"), ofType: User.self)
+    } catch (let e) {
+        print(e)
+    }
+    
+    // delete mutiple by primary keys
+    do {
+        try database.delete(.where(primaryKeys: ["user-1", "user-2"]), ofType: User.self)
+    } catch (let e) {
+        print(e)
+    }
+    
+    // delete all
+    do {
+        try database.delete(.all, ofType: User.self)
+    } catch (let e) {
+        print(e)
+    }
+```
+
 ## Install
 
 **Package.swift:**
