@@ -57,11 +57,7 @@ extension User: Persistable {
 
     // write one
     let user = User(username: "my-user", role: "admin")
-    do {
-        try database.write(.createOrUpdate, user)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.write(.createOrUpdate, user)
     
     // write many
     let users = [
@@ -69,11 +65,7 @@ extension User: Persistable {
         User(username: "user-2", role: "user"),
         User(username: "user-3", role: "user"),
     ]
-    do {
-        try database.write(.createOrUpdate, users)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.write(.createOrUpdate, users)
 ```
 
 ### Query
@@ -83,21 +75,12 @@ extension User: Persistable {
     
     // read first
     let firstUser = try? database.read(.first, ofType: User.self)
-    if let firstUser = firstUser {
-        print(firstUser)
-    }
     
     // read by primary key
     let myUser = try? database.read(.withPrimaryKey("my-user"), ofType: User.self)
-    if let myUser = myUser {
-        print(myUser)
-    }
 
     // read all
     let allUsers = try? database.read(.all, ofType: User.self)
-    if let allUsers = allUsers {
-        print(allUsers)
-    }
 ```
 
 ### Delete
@@ -107,43 +90,23 @@ extension User: Persistable {
     
     // delete by referencing model instance
     let user = User(username: "my-user", role: "admin")
-    do {
-        try database.delete(.model(user), ofType: User.self)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.delete(.model(user), ofType: User.self)
     
     // delete by referencing multiple model instances
     let users = [
         User(username: "user-1", role: "user"),
         User(username: "user-1", role: "user")
     ]
-    do {
-        try database.delete(.models(users), ofType: User.self)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.delete(.models(users), ofType: User.self)
     
     // delete by primary key
-    do {
-        try database.delete(.where(primaryKey: "my-user"), ofType: User.self)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.delete(.where(primaryKey: "my-user"), ofType: User.self)
     
     // delete mutiple by primary keys
-    do {
-        try database.delete(.where(primaryKeys: ["user-1", "user-2"]), ofType: User.self)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.delete(.where(primaryKeys: ["user-1", "user-2"]), ofType: User.self)
     
     // delete all
-    do {
-        try database.delete(.all, ofType: User.self)
-    } catch (let e) {
-        print(e)
-    }
+    try? database.delete(.all, ofType: User.self)
 ```
 
 ## Install
