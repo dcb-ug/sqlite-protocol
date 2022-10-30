@@ -1,29 +1,23 @@
-# SQLite Protocol
+# SQLiteProtocol
 
-**!! This is very much work in progress !!**
+## Usage
 
-for a reference documentation look [here](./Documentation/Reference) or use the quick look feature from xcode (option click)
+TODO
+
 
 ## Install
 
-**Podfile:**
-````
-target '[your-target]' do
-use_frameworks!
-pod 'SQLiteProtocol', '[version]'
-end
-````
-**Run**: `pod install`
-
-## Documentation
-
-first
-```bash
-brew install soucedocs
+**Package.swift:**
+```swift
+dependencies: [
+    // …
+    .package(url: "https://github.com/dcb-ug/sqlite-protocol.git", from: "1.1.0"),
+],
+// …
+targets: [
+    .target(
+        name: "YOUR_TARGET",
+        dependencies: ["SQLiteProtocol"]
+    ),
+]
 ```
-
-then run
-```bash
-sourcedocs generate
-```
-
