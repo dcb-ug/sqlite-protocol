@@ -17,35 +17,30 @@ We can make that user persisitable by conforming to the `Persistable` Protocol.
 
 ```swift
 extension User: Persistable {
-    // create User model from database column
-    init(databaseColumns columns: Columns) throws {
-        self.username = columns.username
-        self.role = columns.role
-    }
-    
-    // define the representation inside the database
+    // define a adapter type `Colums` that can map between the database and the model
     struct Columns: ColumnSchema {
-        var username: String
-        var role: String
+        var username: String = ""
+        var role: String = ""
         
+        // a primary column is required
+        // it sets the name it has in the database,
+        // the key in this model
+        // and how the value is retrieved from the user model
+        static let primaryColumn = PrimaryColumn<User, Columns, String>("username", \.username) { $0.username
+        }
+
+        // also a list of column builders
+        // the builders are set up the same way as the primary key
         static let columns: [Builder<User, Columns>] = [
-            Builder("username", \.username) { $0.username },
             Builder("role", \.role) { $0.role },
         ]
         
-        static let primaryColumn = PrimaryColumn<User, Columns, String>("username", \.username) {
-          $0.username
-        }
-
-        init() {
-            self.username = ""
-            self.role = ""
-        }
-        
-        init(model user: User) {
-            username = user.username
-            role = user.role
-        }
+    }
+    
+    // define an initalizer that can create a model type from our adapter type
+    init(databaseColumns columns: Columns) throws {
+        self.username = columns.username
+        self.role = columns.role
     }
 }
 ```
