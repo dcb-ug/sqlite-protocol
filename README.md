@@ -88,24 +88,24 @@ extension User: Persistable {
 ```swift
     let database = Database()
     
-    // delete by referencing model
-    // (this simply compares the value defined as the primary key)
-    let user = User(username: "my-user", role: "admin")
-    try? database.delete(.model(user), ofType: User.self)
-    
-    // delete by referencing multiple models
-    // (this simply compares the values defined as the primary key)
-    let users = [
-        User(username: "user-1", role: "user"),
-        User(username: "user-1", role: "user")
-    ]
-    try? database.delete(.models(users), ofType: User.self)
-    
     // delete by primary key
     try? database.delete(.where(primaryKey: "my-user"), ofType: User.self)
     
     // delete mutiple by primary keys
     try? database.delete(.where(primaryKeys: ["user-1", "user-2"]), ofType: User.self)
+    
+    // delete by comparing model
+    // this simply compares the value defined as the primary key
+    let user = User(username: "my-user", role: "admin")
+    try? database.delete(.model(user), ofType: User.self)
+    
+    // delete by comparring multiple models
+    // this simply compares the values defined as the primary key
+    let users = [
+        User(username: "user-1", role: "user"),
+        User(username: "user-1", role: "user")
+    ]
+    try? database.delete(.models(users), ofType: User.self)
     
     // delete all
     try? database.delete(.all, ofType: User.self)
