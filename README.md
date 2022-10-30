@@ -2,7 +2,7 @@
 
 ## Usage
 
-Assuimg wer have the following model:
+Assuimg we have the following model:
 
 ```swift
 struct User {
