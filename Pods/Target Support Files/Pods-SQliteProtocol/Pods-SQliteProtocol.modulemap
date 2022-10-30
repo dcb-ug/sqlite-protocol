@@ -1,6 +1,0 @@
-framework module Pods_SQLiteProtocol {
-  umbrella header "Pods-SQLiteProtocol-umbrella.h"
-
-  export *
-  module * { export * }
-}
