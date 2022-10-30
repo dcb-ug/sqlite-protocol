@@ -1,0 +1,7 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'SQLiteProtocol' do
+#  pod 'SwiftLint', '0.24.2'
+  pod 'SQLite.swift', '~> 0.11.5'
+end

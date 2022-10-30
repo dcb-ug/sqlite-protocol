@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12AF62E6AEAB99C371E882D4 /* Pods_SQliteProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */; };
 		540C9C6B224547DE00AFF07A /* AnyReadQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C66224547DE00AFF07A /* AnyReadQuery.swift */; };
 		540C9C6C224547DE00AFF07A /* DefaultWriteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C67224547DE00AFF07A /* DefaultWriteQuery.swift */; };
 		540C9C6D224547DE00AFF07A /* AnyWriteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C68224547DE00AFF07A /* AnyWriteQuery.swift */; };
-		540C9C6E224547DE00AFF07A /* PrimaryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C69224547DE00AFF07A /* PrimaryKey.swift */; };
+		540C9C6E224547DE00AFF07A /* PrimaryColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C69224547DE00AFF07A /* PrimaryColumn.swift */; };
 		540C9C6F224547DE00AFF07A /* DefaultReadQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C6A224547DE00AFF07A /* DefaultReadQuery.swift */; };
-		540C9C73224547ED00AFF07A /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C70224547ED00AFF07A /* Schema.swift */; };
+		540C9C73224547ED00AFF07A /* ColumnSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C70224547ED00AFF07A /* ColumnSchema.swift */; };
 		540C9C74224547ED00AFF07A /* WriteQueryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C71224547ED00AFF07A /* WriteQueryProtocol.swift */; };
 		540C9C75224547ED00AFF07A /* ReadQueryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C9C72224547ED00AFF07A /* ReadQueryProtocol.swift */; };
+		545FD41B290EB1FB00DBDD61 /* QueryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FD419290EB1FB00DBDD61 /* QueryProviding.swift */; };
+		545FD41C290EB1FB00DBDD61 /* DeleteQueryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FD41A290EB1FB00DBDD61 /* DeleteQueryProtocol.swift */; };
+		545FD420290EB21600DBDD61 /* AnyDeleteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FD41D290EB21600DBDD61 /* AnyDeleteQuery.swift */; };
+		545FD421290EB21600DBDD61 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FD41E290EB21600DBDD61 /* Builder.swift */; };
+		545FD422290EB21600DBDD61 /* DefaultDeleteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545FD41F290EB21600DBDD61 /* DefaultDeleteQuery.swift */; };
 		640727DE2237EC8800D9D39F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 640727DC2237EC8800D9D39F /* LICENSE */; };
 		640727DF2237EC8800D9D39F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 640727DD2237EC8800D9D39F /* Podfile */; };
 		640727F12237EDF100D9D39F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640727E72237EDF100D9D39F /* Database.swift */; };
@@ -30,11 +34,16 @@
 		540C9C66224547DE00AFF07A /* AnyReadQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyReadQuery.swift; sourceTree = "<group>"; };
 		540C9C67224547DE00AFF07A /* DefaultWriteQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultWriteQuery.swift; sourceTree = "<group>"; };
 		540C9C68224547DE00AFF07A /* AnyWriteQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyWriteQuery.swift; sourceTree = "<group>"; };
-		540C9C69224547DE00AFF07A /* PrimaryKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryKey.swift; sourceTree = "<group>"; };
+		540C9C69224547DE00AFF07A /* PrimaryColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryColumn.swift; sourceTree = "<group>"; };
 		540C9C6A224547DE00AFF07A /* DefaultReadQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultReadQuery.swift; sourceTree = "<group>"; };
-		540C9C70224547ED00AFF07A /* Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
+		540C9C70224547ED00AFF07A /* ColumnSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnSchema.swift; sourceTree = "<group>"; };
 		540C9C71224547ED00AFF07A /* WriteQueryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteQueryProtocol.swift; sourceTree = "<group>"; };
 		540C9C72224547ED00AFF07A /* ReadQueryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadQueryProtocol.swift; sourceTree = "<group>"; };
+		545FD419290EB1FB00DBDD61 /* QueryProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryProviding.swift; sourceTree = "<group>"; };
+		545FD41A290EB1FB00DBDD61 /* DeleteQueryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteQueryProtocol.swift; sourceTree = "<group>"; };
+		545FD41D290EB21600DBDD61 /* AnyDeleteQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDeleteQuery.swift; sourceTree = "<group>"; };
+		545FD41E290EB21600DBDD61 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		545FD41F290EB21600DBDD61 /* DefaultDeleteQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDeleteQuery.swift; sourceTree = "<group>"; };
 		640727D12237EC1D00D9D39F /* SQLiteProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLiteProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		640727D52237EC1D00D9D39F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		640727DC2237EC8800D9D39F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -44,7 +53,6 @@
 		640727F92237F15100D9D39F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		640727FB2237F81900D9D39F /* SQLiteProtocol.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SQLiteProtocol.podspec; sourceTree = "<group>"; };
 		9DE1FB7935016A41BA27CCF7 /* Pods-SQliteProtocol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.debug.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.debug.xcconfig"; sourceTree = "<group>"; };
-		A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQliteProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BCA687D4337F3548316294 /* Pods-SQLiteProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLiteProtocol.release.xcconfig"; path = "Target Support Files/Pods-SQLiteProtocol/Pods-SQLiteProtocol.release.xcconfig"; sourceTree = "<group>"; };
 		EC104204284BBFE553B2C90A /* Pods-SQliteProtocol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQliteProtocol.release.xcconfig"; path = "Target Support Files/Pods-SQliteProtocol/Pods-SQliteProtocol.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12AF62E6AEAB99C371E882D4 /* Pods_SQliteProtocol.framework in Frameworks */,
 				A886DF8A46F95875C96B97A8 /* Pods_SQLiteProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,9 +104,11 @@
 		640727F52237EE1500D9D39F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				545FD41A290EB1FB00DBDD61 /* DeleteQueryProtocol.swift */,
+				545FD419290EB1FB00DBDD61 /* QueryProviding.swift */,
 				640727E92237EDF100D9D39F /* Persistable.swift */,
 				540C9C72224547ED00AFF07A /* ReadQueryProtocol.swift */,
-				540C9C70224547ED00AFF07A /* Schema.swift */,
+				540C9C70224547ED00AFF07A /* ColumnSchema.swift */,
 				540C9C71224547ED00AFF07A /* WriteQueryProtocol.swift */,
 			);
 			path = Protocols;
@@ -108,12 +117,15 @@
 		640727F72237EE9400D9D39F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				545FD41D290EB21600DBDD61 /* AnyDeleteQuery.swift */,
+				545FD41E290EB21600DBDD61 /* Builder.swift */,
+				545FD41F290EB21600DBDD61 /* DefaultDeleteQuery.swift */,
 				640727E72237EDF100D9D39F /* Database.swift */,
 				540C9C66224547DE00AFF07A /* AnyReadQuery.swift */,
 				540C9C68224547DE00AFF07A /* AnyWriteQuery.swift */,
 				540C9C6A224547DE00AFF07A /* DefaultReadQuery.swift */,
 				540C9C67224547DE00AFF07A /* DefaultWriteQuery.swift */,
-				540C9C69224547DE00AFF07A /* PrimaryKey.swift */,
+				540C9C69224547DE00AFF07A /* PrimaryColumn.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,7 +133,6 @@
 		9FD6C7F362B01BCD61243A0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3B869D5821822D7EA917723 /* Pods_SQliteProtocol.framework */,
 				21DA39F7054EB96476FBDD61 /* Pods_SQLiteProtocol.framework */,
 			);
 			name = Frameworks;
@@ -177,7 +188,7 @@
 		640727C82237EC1D00D9D39F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = "dcb-ug";
 				TargetAttributes = {
 					640727D02237EC1D00D9D39F = {
@@ -263,16 +274,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				540C9C73224547ED00AFF07A /* Schema.swift in Sources */,
+				540C9C73224547ED00AFF07A /* ColumnSchema.swift in Sources */,
 				540C9C6F224547DE00AFF07A /* DefaultReadQuery.swift in Sources */,
 				540C9C6C224547DE00AFF07A /* DefaultWriteQuery.swift in Sources */,
+				545FD422290EB21600DBDD61 /* DefaultDeleteQuery.swift in Sources */,
+				545FD41C290EB1FB00DBDD61 /* DeleteQueryProtocol.swift in Sources */,
+				545FD420290EB21600DBDD61 /* AnyDeleteQuery.swift in Sources */,
 				640727F32237EDF100D9D39F /* Persistable.swift in Sources */,
-				540C9C6E224547DE00AFF07A /* PrimaryKey.swift in Sources */,
+				540C9C6E224547DE00AFF07A /* PrimaryColumn.swift in Sources */,
 				640727F12237EDF100D9D39F /* Database.swift in Sources */,
 				540C9C75224547ED00AFF07A /* ReadQueryProtocol.swift in Sources */,
+				545FD421290EB21600DBDD61 /* Builder.swift in Sources */,
 				540C9C74224547ED00AFF07A /* WriteQueryProtocol.swift in Sources */,
 				540C9C6D224547DE00AFF07A /* AnyWriteQuery.swift in Sources */,
 				540C9C6B224547DE00AFF07A /* AnyReadQuery.swift in Sources */,
+				545FD41B290EB1FB00DBDD61 /* QueryProviding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +321,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -369,6 +386,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -422,7 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ug.dcb.SQliteProtocol;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -448,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ug.dcb.SQliteProtocol;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
